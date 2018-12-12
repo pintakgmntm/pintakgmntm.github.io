@@ -1,6 +1,6 @@
 {
-	"name":				"こんちくわメモ",
-	"short_name":		"メモ",
+	"name":				"こんちくわ",
+	"short_name":		"こんちくわ",
 	"description":		"",
 	"start_url":		"index.html",
 	"display":			"standalone",
