@@ -3,7 +3,7 @@
 <head>
 
 	<meta charset="UTF-8">
-	<title>心理テスト</title>
+	<title>ドラえもん検定</title>
 	<script src="jquery-3.3.1.min.js"></script>
 	<script src="jquery.mobile-1.4.5.min.js"></script>
 
@@ -84,7 +84,7 @@
         margin: 10px;
     }
     .abc{
-        background-image: url(９-1.jpg);
+        background-image: url(9-1.jpg);
         width: 200px;
         height: 200px;
         margin: 10px;
@@ -141,6 +141,42 @@
         padding: 30px;
         font-size: 15px;
     }
+    .oni{
+        background-image: url(7-1.jpg);
+         width: 200px;
+        height: 200px;
+        margin: 10px;
+    }
+    .giri{
+        background-image: url(7-2.jpg);
+         width: 200px;
+        height: 200px;
+        margin: 10px;
+    }
+    .ume{
+        background-image: url(7-3.jpg);
+         width: 200px;
+        height: 200px;
+        margin: 10px;
+    }
+    .san{
+        background-image: url(8-2.jpg);
+         width: 200px;
+        height: 200px;
+        margin: 10px;
+    }
+    .dow{
+        background-image: url(8-3.jpg);
+         width: 200px;
+        height: 200px;
+        margin: 10px;
+    }
+    .ich{
+        background-image: url(8-1.jpg);
+         width: 200px;
+        height: 200px;
+        margin: 10px;
+    }
     </style>
 </head>
 
@@ -163,6 +199,9 @@
     
     <a href="#tyukyu" id="246">
         <img src="AS002682_07%20.gif">
+    </a>
+    <a href="#zyokyu" id="390">
+        <img src="AS001078_01.gif">
     </a>
      <footer>
         <h1>ドラえもんについてはこちら</h1>
@@ -307,7 +346,7 @@ window.addEventListener('load',init1);
     </script></div>
         
     
-       <div id="tyukyu">
+<div id="tyukyu">
 <div id="gamePlayer">
 	<h1>ドラえもん検定　中級！</h1>
 	<div id="choco">
@@ -426,7 +465,125 @@ window.addEventListener('load',init);
     </script>
     </div>
 
-    
+<div id="zyokyu">
+    <div id="gamePlaying">
+	<h1>ドラえもん検定　上級！</h1>
+	<div id="rate">
+	</div>
+	<div id="koria">
+	<ul id="choose">
+	</ul>
+	</div>
+</div>
+
+   
+<div id="gameEndstorn">
+	<h1>ドラえもん検定結果！</h1>
+	<div id="nine"></div>
+	<div id="sideline"></div>
+	<div id="poi"></div>
+	<div><a href="#serekuto">もう一度ゲームを行う</a></div>
+</div>
+     <footer>
+        <h1>ドラえもんについてはこちら</h1>
+       <li class="
+           footer"> <a href="https://dora-world.com/">
+            <img src="dorachan.png" style="width: 200px; height: 100px">
+        </a>
+        <a href="http://fujiko-museum.com/">
+            <img src="musiam.jpg" style="width: 200px; 
+            height: 100px;">
+        </a>
+          <a href="http://thedoraemontentokyo2017.jp/osaka.html">
+            <img src="ten.jpg" style="width: 200px; height: 100px;">
+                            </a>
+            <a href="https://www.tv-asahi.co.jp/doraemon/">
+                <img src="asa.jpg" style="width: 200px; height: 100px;">
+            </a>  
+        </li>
+        
+    </footer>
+     
+	<script>
+        
+	//問題の設定
+	var q2 = [];
+	q2[0] =["ドラえもんはどこで寝てる？",
+           "<div class='oni'></div>",
+           "<div class='giri'></div>",
+	       "<div class='ume'></div>",2];
+        
+	q2[1] =["原作でののび太は何年生？",
+           "<div class='san'></div>",
+           "<div class='dow'></div>",
+           "<div class='ich'></div>",1];
+        
+	q2[2] =["ドラえもんの嫌いなものは？",
+           "<div class='sleep'></div>",
+           "<div class='money'></div>",
+           "<div class='time'></div>",2];
+
+	var count = 0;
+	var hit = 0;
+
+var init2=function(){
+count2=0;
+hit2=0;
+
+document.getElementById('gamePlaying').style = "display:block";
+document.getElementById('gameEndstorn').style = "display:none";
+
+question2(count2);
+}
+
+var question2 =function(num){
+	var rate = document.getElementById('rate');
+	var choose = document.getElementById('choose');
+
+	while (choose.firstChild) {
+		choose.removeChild(choose.firstChild);
+	}
+
+	rate.textContent = q2[num][0];	 
+
+	for(i=1;i<=3;i++){
+		toi2 = document.createElement('li');
+		toi2.innerHTML += '<a href="javascript:answer2('+i+')">'+q2[num][i]+'</a>';
+		choose.appendChild(toi2);
+	}
+}
+
+var answer2 = function(num) {
+
+	if (num == q2[count1][4]) {
+		hit2++;
+	}                              
+//回答数
+count2++;
+
+	if(count2 == q2.length){
+		endScene2();
+	}else{
+		question2(count2);
+	}
+
+}
+
+endScene1 = function(){
+document.getElementById('gamePlaying').style = "display:none";
+document.getElementById('gameEndstorn').style = "display:block";
+
+document.getElementById('nine').textContent = "正解率:"+Math.floor(hit2/q2.length*100)+"%";
+document.getElementById('sideline').textContent = q2.length+"問中、正解は "+hit2+"問でした。";
+poi =document.getElementById('poi');
+}
+
+//これで実行
+window.addEventListener('load',init2);
+        
+    </script>
+</div>
+
 <div id="omake">
  <h1>しずかちゃんのお風呂を最初に覗いたのは誰？</h1>
   <p style="font-size: 20px;">
@@ -493,6 +650,16 @@ window.addEventListener('load',init);
         $("#serekuto").show(2000);
     });
     
+     $("#zyokyu").hide();
+     $("#serekuto #390").click(function(){
+      $("#serekuto").hide();
+      $("#zyokyu").show(2000);
+      });
+
+     $("#gameEndstorn a").click(function(){
+        $("#zyokyu").hide();
+        $("#serekuto").show(2000);
+    });
     $("#omake").hide();
     $("#serekuto #180").click(function(){
         $("#serekuto").hide();
