@@ -250,13 +250,13 @@
 	var hit = 0;
 
 var init1=function(){
-count=0;
-hit=0;
+count1=0;
+hit1=0;
 
 document.getElementById('gamePlay').style = "display:block";
 document.getElementById('gameEnd').style = "display:none";
 
-question1(count);
+question1(count1);
 }
 
 var question1 =function(num){
@@ -278,16 +278,16 @@ var question1 =function(num){
 
 var answer1 = function(num) {
 
-	if (num == q1[count][4]) {
-		hit++;
+	if (num == q1[count1][4]) {
+		hit1++;
 	}                              
 //回答数
-count++;
+count1++;
 
-	if(count == q1.length){
+	if(count1 == q1.length){
 		endScene1();
 	}else{
-		question1(count);
+		question1(count1);
 	}
 
 }
@@ -296,8 +296,8 @@ endScene1 = function(){
 document.getElementById('gamePlay').style = "display:none";
 document.getElementById('gameEnd').style = "display:block";
 
-document.getElementById('score').textContent = "正解率:"+Math.floor(hit/q1.length*100)+"%";
-document.getElementById('outline').textContent = q1.length+"問中、正解は "+hit+"問でした。";
+document.getElementById('score').textContent = "正解率:"+Math.floor(hit1/q1.length*100)+"%";
+document.getElementById('outline').textContent = q1.length+"問中、正解は "+hit1+"問でした。";
 detail =document.getElementById('detail');
 }
 
@@ -305,7 +305,7 @@ detail =document.getElementById('detail');
 window.addEventListener('load',init1);
         
     </script></div>
-    
+        
     
        <div id="tyukyu">
 <div id="gamePlayer">
